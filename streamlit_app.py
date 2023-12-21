@@ -184,6 +184,7 @@ def main():
             }
         ref1 = db.reference('Individual prompt').push()
         ref1.set(result_data)
+        st.header('Outputs are saved to Database')
 
     if st.button("Mega Prompt (Concatination of Results of all the individual hooks)"):
         # Initialize variables to store responses
@@ -258,6 +259,7 @@ def main():
             }
         ref2 = db.reference('Mega Prompt').push()
         ref2.set(result_data)
+        st.header('Outputs are saved to Database')
 
     if st.button("Base Prompt (Single Prompt covering all the hook requirements)"):
         predefined_prompt = (
@@ -282,5 +284,6 @@ def main():
             }
         ref3 = db.reference('Base prompt').push()
         ref3.set(result_data)
+        st.header('Outputs are saved to Database')
 if __name__ == "__main__":
     main()
