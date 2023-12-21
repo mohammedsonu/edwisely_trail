@@ -182,7 +182,7 @@ def main():
             "Story Hook":bot_response,
             "Base Prompt Hook": " ",
             }
-        ref1 = db.reference('Individual prompt')
+        ref1 = db.reference('Individual prompt').push()
         ref1.set(result_data)
 
     if st.button("Mega Prompt (Concatination of Results of all the individual hooks)"):
@@ -256,7 +256,7 @@ def main():
             "Story Hook":story_response,
             "Base Prompt Hook": " ",
             }
-        ref2 = db.reference('Mega Prompt')
+        ref2 = db.reference('Mega Prompt').push()
         ref2.set(result_data)
 
     if st.button("Base Prompt (Single Prompt covering all the hook requirements)"):
@@ -280,7 +280,7 @@ def main():
             "Story Hook":"",
             "Base Prompt Hook":bot_response,
             }
-        ref3 = db.reference('Base prompt')
+        ref3 = db.reference('Base prompt').push()
         ref3.set(result_data)
 if __name__ == "__main__":
     main()
