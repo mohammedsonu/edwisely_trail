@@ -23,7 +23,7 @@ if not firebase_admin._apps:
     })
 
 def get_hook_response_mega(prompt, user_input):
-    api_key = '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'
+    api_key = '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'
     endpoint = 'https://api.openai.com/v1/chat/completions'
     
     headers = {
@@ -43,7 +43,7 @@ def get_hook_response_mega(prompt, user_input):
     return bot_response
 
 def get_hook_response(prompt_type, user_input):
-    api_key = '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'
+    api_key = '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'
     endpoint = 'https://api.openai.com/v1/chat/completions'
     
     headers = {
@@ -74,7 +74,7 @@ def get_hook_response(prompt_type, user_input):
         return f"Invalid prompt type: {prompt_type}"
     
 def get_chatbot_response(prompt):
-    api_key = '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'
+    api_key = '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'
     endpoint = 'https://api.openai.com/v1/chat/completions'
     
     headers = {
@@ -94,16 +94,17 @@ def get_chatbot_response(prompt):
 def main():
     st.title("Edwisely Hook Generator")
 
-    prompt_options = ["Quotation Hook","Question Hook","Statistic Hook","Application Hook","Sarcasm Hook","Story Hook"]
+    prompt_options = ["Description","Quotation Hook","Question Hook","Statistic Hook","Application Hook","Sarcasm Hook","Story Hook"]
 
     user_input = st.text_input("You:", "")
     prompts = {
-        "Quotation Hook": "Imagine you're a creative blogger, and generate a captivating quotation hook on a topic. Choose a quote from a credible source, introduce it, and then explain its meaning to the reader in the most simple english. Illustrate how the quote relates to the chosen topic and provide insights in a way that resonates with an reader's point of view. Keep the language simple, and avoid fancy words to ensure clear and engaging communication. Start with an eye-catching one-liner and then give content of 100 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Question Hook": "Create a compelling one-liner rhetorical  question hook within 20 words for a blog, intriguing readers to explore a parallel world related to the topic. Write a 100-word explanation in simple language, employing rhetorical questions to captivate readers and prompt introspection on the topic, challenging their perspectives and leaving them eager for more. The reader must understand the concept of the topic by the end.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Statistic Hook": "Generate a compelling statistical analysis exploring the profound impact of a topic by utilizing a diverse range of figures, numbers, decimals, and percentages. Craft a data-driven narrative that highlights the importance, relevance, and conceptual depth of the Topic, employing a statistic hook in the form of a quote to introduce key insights. Ensure the quote is rich in statistical details, and following its inclusion, provide a clear and insightful explanation of the quote's significance in relation to the overarching narrative of the statistical exploration.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is ",
-        "Application Hook": "Generate an attention-grabbing application hook that surprises readers with intriguing facts or definitions related to the topic. Provide information that piques curiosity and encourages readers to delve deeper into your content. Additionally, craft a hook that reveals common misconceptions by presenting a well-known fact and demonstrating its falseness in relation to the topic. Ensure your hook includes real-life applications or examples, making the topic more tangible and engaging for the reader.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
+        "Description": "Explain the following topic in simple terms, using everyday language. Keep it short and clear, around 100 words. Assume the audience has little prior knowledge.The topic is",
+        "Quotation Hook": "Imagine you're a creative blogger, and generate a captivating quotation hook on a topic. Choose a quote from a credible source, introduce it, and then explain its meaning to the reader in the most simple english. Illustrate how the quote relates to the chosen topic and provide insights in a way that resonates with an reader's point of view. Keep the language simple, and avoid fancy words to ensure clear and engaging communication. Start with an eye-catching one-liner and then give content of 100 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp.Keep it short and clear, around 100 words. The topic is",
+        "Question Hook": "Generate a set of 5 questions for engineering-level students on the topic. Include straightforward, rhetorical questions,application-oriented questions,thought-provoking or real life questions .Keep the Questions short ,concise and precise.Ensure that the questions are tailored to challenge the students understanding of the subject at an advanced level. Place a strong emphasis on easy sentence formation, ensuring the language is straightforward, clear, and easy for young readers to grasp.Keep it short and clear, around 150 words. The topic is ",
+        "Statistic Hook": "Generate a compelling statistical analysis exploring the profound impact of a topic by utilizing a diverse range of figures, numbers, decimals, and percentages. Craft a data-driven narrative that highlights the importance, relevance, and conceptual depth of the Topic.Generate five such statistics, keep them short ,concise and precise.Ensure that the statistics are tailored to challenge the engineering students' understanding of the subject at an advanced level. Place a strong emphasis on easy sentence formation, ensuring the language is straightforward, clear, and easy for young readers to grasp.Keep it short and clear, around 100 words. The topic is",
+        "Application Hook": "Generate a set of 5 most important application points for engineering-level students on the topic. Include two points like ‘did you know’ applications of that topic, then three real life applications of that topic and two points on where else can it be applicable or relatable.Keep the applications short ,concise and precise.Ensure that the points are tailored to challenge the engineering students' understanding of the subject at an advanced level. Place a strong emphasis on easy sentence formation, ensuring the language is straightforward, clear, and easy for young readers to grasp.Generate the output in bullet points, dont give title to each question.The topic is ",
         "Sarcasm Hook": "Inject a dose of humor into the content by creating a clever and sarcastic joke related to the topic. Infuse wit and ensure the joke has a conceptual tie to the topic. Craft the joke in a way that delivers a subtle lesson or insight, ensuring the reader learns something from the humor while keeping the tone light and entertaining.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Story Hook": "Craft a captivating anecdotal hook by narrating a real or compelling fictional story seamlessly introducing and explaining the topic. Keep the language simple, ensuring the narrative is easy to follow, relevant, and contextual. Infuse creativity into the story, striking a balance between attention-grabbing elements and educational content. Leverage the freedom to shape the storyline for maximum impact, ensuring a connection to the main idea of the topic while highlighting its relevance to the overall topic. Your goal is to engage readers through a real-life story, a personal story, or an imaginative tale that enhances understanding and interest in the subject matter.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp.The topic is"
+        "Story Hook": "Tell a cool story that grabs attention and explains the topic in simple words. Make it interesting with imagination or a real-life experience. Use creative language, and make sure it connects to the main idea of the topic. Infuse creativity into the story, striking a balance between attention-grabbing elements and educational content. The main idea of the story is to highlight its relevance to the overall topic and help the reader understand the concept of the topic. Think of a catchy title that's fun and exciting. Imagine you're talking to an engineering student, Craft a response using very simple English. Imagine you're explaining this  to someone who is new to the topic. Keep it clear, straightforward, and easy to understand.The topic is"
     }
     selected_prompt_option = st.selectbox("Select a prompt:", prompt_options)
 
@@ -114,6 +115,7 @@ def main():
             result_data = {
             "prompt": selected_prompt_option,
             "input": user_input,
+            "Description":"",
             "Quotation Hook":bot_response,
             "Question Hook":" " ,
             "Statistic Hook":" ",
@@ -126,6 +128,7 @@ def main():
             result_data = {
             "prompt": selected_prompt_option,
             "input": user_input,
+            "Description":"",
             "Quotation Hook":" ",
             "Question Hook":bot_response,
             "Statistic Hook":" ",
@@ -138,6 +141,7 @@ def main():
             result_data = {
             "prompt": selected_prompt_option,
             "input": user_input,
+            "Description":"",
             "Quotation Hook":" ",
             "Question Hook":" ",
             "Statistic Hook":bot_response,
@@ -150,6 +154,7 @@ def main():
             result_data = {
             "prompt": selected_prompt_option,
             "input": user_input,
+            "Description":"",
             "Quotation Hook":" ",
             "Question Hook":" ",
             "Statistic Hook":" ",
@@ -162,6 +167,7 @@ def main():
             result_data = {
             "prompt": selected_prompt_option,
             "input": user_input,
+            "Description":"",
             "Quotation Hook":" ",
             "Question Hook":" ",
             "Statistic Hook":" ",
@@ -174,6 +180,7 @@ def main():
             result_data = {
             "prompt": selected_prompt_option,
             "input": user_input,
+            "Description":"",
             "Quotation Hook":" ",
             "Question Hook":" ",
             "Statistic Hook":" ",
@@ -182,23 +189,34 @@ def main():
             "Story Hook":bot_response,
             "Base Prompt Hook": " ",
             }
+        elif selected_prompt_option == "Description":
+            result_data = {
+            "prompt": selected_prompt_option,
+            "input": user_input,
+            "Description":bot_response,
+            "Quotation Hook":" ",
+            "Question Hook":" ",
+            "Statistic Hook":" ",
+            "Application Hook":" ",
+            "Sarcasm Hook":" ",
+            "Story Hook":" ",
+            "Base Prompt Hook": " ",
+            }
         ref1 = db.reference('Individual prompt').push()
         ref1.set(result_data)
         st.header('Outputs are saved to Database')
 
     if st.button("Mega Prompt (Concatination of Results of all the individual hooks)"):
-        # Initialize variables to store responses
-        # Initialize variables to store responses
-
         prompts = {
-        "Quotation Hook": "Imagine you're a creative blogger, and generate a captivating quotation hook on a topic. Choose a quote from a credible source, introduce it, and then explain its meaning to the reader in the most simple English. Illustrate how the quote relates to the chosen topic and provide insights in a way that resonates with a reader's point of view. Keep the language simple, and avoid fancy words to ensure clear and engaging communication. Start with an eye-catching one-liner and then give content of 100 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Question Hook": "Create a compelling one-liner rhetorical  question hook within 20 words for a blog, intriguing readers to explore a parallel world related to the topic. Write a 100-word explanation in simple language, employing rhetorical questions to captivate readers and prompt introspection on the topic, challenging their perspectives and leaving them eager for more.Start with an eye-catching one-liner and then give content of 200 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Statistic Hook": "Generate a compelling statistical analysis exploring the profound impact of a topic by utilizing a diverse range of figures, numbers, decimals, and percentages. Craft a data-driven narrative that highlights the importance, relevance, and conceptual depth of the Topic, employing a statistic hook in the form of a quote to introduce key insights. Ensure the quote is rich in statistical details, and following its inclusion, provide a clear and insightful explanation of the quote's significance in relation to the overarching narrative of the statistical exploration.Start with an eye-catching one-liner and then give content of 200 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is ",
-        "Application Hook": "Generate an attention-grabbing application hook that surprises readers with intriguing facts or definitions related to the topic. Provide information that piques curiosity and encourages readers to delve deeper into your content. Additionally, craft a hook that reveals common misconceptions by presenting a well-known fact and demonstrating its falseness in relation to the topic. Ensure your hook includes real-life applications or examples, making the topic more tangible and engaging for the reader.Start with an eye-catching one-liner and then give content of 200 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Sarcasm Hook": "Inject a dose of humor into the content by creating a clever and sarcastic joke related to the topic. Infuse wit and ensure the joke has a conceptual tie to the topic. Craft the joke in a way that delivers a subtle lesson or insight, ensuring the reader learns something from the humor while keeping the tone light and entertaining.Start with an eye-catching one-liner and then give content of 200 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
-        "Story Hook": "Craft a captivating anecdotal hook by narrating a real or compelling fictional story seamlessly introducing and explaining the topic. Keep the language simple, ensuring the narrative is easy to follow, relevant, and contextual. Infuse creativity into the story, striking a balance between attention-grabbing elements and educational content. Leverage the freedom to shape the storyline for maximum impact, ensuring a connection to the main idea of the topic while highlighting its relevance to the overall topic. Your goal is to engage readers through a real-life story, a personal story, or an imaginative tale that enhances understanding and interest in the subject matter.Name the title of the story in a very creative and eyecatching way.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp.The topic is"
+        "Description": "Explain the following topic in simple terms, using everyday language. Keep it short and clear, around 100 words. Assume the audience has little prior knowledge.The topic is",
+        "Quotation Hook": "Imagine you're a creative blogger, and generate a captivating quotation hook on a topic. Choose a quote from a credible source, introduce it, and then explain its meaning to the reader in the most simple English. Illustrate how the quote relates to the chosen topic and provide insights in a way that resonates with a reader's point of view. Start with an eye-catching one-liner and then give content of 50 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp.Keep it short and clear, around 100 words. The topic is",
+        "Question Hook": "Generate a set of 5 questions for engineering-level students on the topic. Include straightforward, rhetorical questions,application-oriented questions,thought-provoking or real life questions .Keep the Questions short ,concise and precise.Ensure that the questions are tailored to challenge the students understanding of the subject at an advanced level. Place a strong emphasis on easy sentence formation, ensuring the language is straightforward, clear, and easy for young readers to grasp.Keep it short and clear, around 150 words. The topic is ",
+        "Statistic Hook": "Generate a compelling statistical analysis exploring the profound impact of a topic by utilizing a diverse range of figures, numbers, decimals, and percentages. Craft a data-driven narrative that highlights the importance, relevance, and conceptual depth of the Topic.Generate five such statistics, keep them short ,concise and precise.Ensure that the statistics are tailored to challenge the engineering students' understanding of the subject at an advanced level. Place a strong emphasis on easy sentence formation, ensuring the language is straightforward, clear, and easy for young readers to grasp.Keep it short and clear, around 100 words. The topic is",
+        "Application Hook": "Generate a set of 5 most important application points for engineering-level students on the topic. Include two points like ‘did you know’ applications of that topic, then three real life applications of that topic and two points on where else can it be applicable or relatable.Keep the applications short ,concise and precise.Ensure that the points are tailored to challenge the engineering students' understanding of the subject at an advanced level. Place a strong emphasis on easy sentence formation, ensuring the language is straightforward, clear, and easy for young readers to grasp.Generate the output in bullet points, dont give title to each question.The topic is ",
+        "Sarcasm Hook": "Inject a dose of humor into the content by creating a clever and sarcastic joke related to the topic. Infuse wit and ensure the joke has a conceptual tie to the topic. Craft the joke in a way that delivers a subtle lesson or insight, ensuring the reader learns something from the humor while keeping the tone light and entertaining.Start with an eye-catching one-liner and then give content of 80 words in a single passage.Use extremely simple English words. Place a strong emphasis on easy sentence formation, making sure that the language is straightforward, clear and easy for young readers to grasp. The topic is",
+        "Story Hook": "Tell a cool story that grabs attention and explains the topic in simple words. Make it interesting with imagination or a real-life experience. Use creative language, and make sure it connects to the main idea of the topic. Infuse creativity into the story, striking a balance between attention-grabbing elements and educational content. The main idea of the story is to highlight its relevance to the overall topic and help the reader understand the concept of the topic. Think of a catchy title that's fun and exciting. Imagine you're talking to an engineering student, Craft a response using very simple English. Imagine you're explaining this  to someone who is new to the topic. Keep it clear, straightforward, and easy to understand.The topic is"
         }
-
+        description_response=""
         quotation_response = ""
         question_response = ""
         statistic_response = ""
@@ -227,10 +245,14 @@ def main():
                 sarcasm_response = bot_response
             elif prompt_type == "Story Hook":
                 story_response = bot_response
+            elif prompt_type == "Description":
+                description_response = bot_response
 
         # Concatenate responses with one empty line between each response
+        st.markdown("<h2>Description</h2>", unsafe_allow_html=True)
+        st.write(description_response)
         st.markdown("<h2>Quotation Output</h2>", unsafe_allow_html=True)
-        st.write(question_response)
+        st.write(quotation_response)
         st.markdown("<br><br>",unsafe_allow_html=True)
         st.markdown("<h2>Question Output</h2>", unsafe_allow_html=True)
         st.write(question_response)
@@ -249,6 +271,7 @@ def main():
         result_data = {
             "prompt": "mega prompt",
             "input": user_input,
+            "Description":description_response,
             "Quotation Hook":question_response,
             "Question Hook":question_response,
             "Statistic Hook":statistic_response,
