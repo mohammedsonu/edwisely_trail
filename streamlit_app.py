@@ -15,6 +15,7 @@ firebase_config ={
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-q55nh%40edwisey-hook.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
+live_api_key='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'
 if not firebase_admin._apps:
     # Initialize Firebase with your own configuration
     cred = credentials.Certificate(firebase_config)
@@ -23,7 +24,7 @@ if not firebase_admin._apps:
     })
 
 def get_hook_response_mega(prompt, user_input):
-    api_key = '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'
+    api_key = live_api_key
     endpoint = 'https://api.openai.com/v1/chat/completions'
     
     headers = {
@@ -43,7 +44,7 @@ def get_hook_response_mega(prompt, user_input):
     return bot_response
 
 def get_hook_response(prompt_type, user_input):
-    api_key = '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'
+    api_key =live_api_key
     endpoint = 'https://api.openai.com/v1/chat/completions'
     
     headers = {
@@ -76,7 +77,7 @@ def get_hook_response(prompt_type, user_input):
         return f"Invalid prompt type: {prompt_type}"
     
 def get_chatbot_response(prompt):
-    api_key = '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'
+    api_key =live_api_key
     endpoint = 'https://api.openai.com/v1/chat/completions'
     
     headers = {
