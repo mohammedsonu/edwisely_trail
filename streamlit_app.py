@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 
-api_key = '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'
+api_key = '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'
 endpoint = 'https://api.openai.com/v1/chat/completions'
 
 st.title("Hook Generator Edwisely")
